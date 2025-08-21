@@ -8,7 +8,7 @@ cryptography==43.0.3
 defusedxml==0.7.1
 dj-database-url==2.3.0
 Django==4.2.15
-django-allauth==0.63.3
+django-allauth==65.3.0
 django-cors-headers==4.4.0
 django-crispy-forms==2.2
 django-docusign==3.3
@@ -55,4 +55,5 @@ whitenoise==6.8.2
 xhtml2pdf==0.2.15
 xlrd==2.0.1
 xlwt==1.3.0
+
 
