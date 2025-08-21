@@ -62,15 +62,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cotton.wsgi.application'
 
-# Database (MySQL)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv("DB_NAME", "cotton_db"),
-        'USER': os.getenv("DB_USER", "root"),
-        'PASSWORD': os.getenv("DB_PASSWORD", ""),
-        'HOST': os.getenv("DB_HOST", "127.0.0.1"),
-        'PORT': os.getenv("DB_PORT", "3306"),
+        'NAME': "if0_39759943_cotton_db",
+        'USER': "if0_39759943",
+        'PASSWORD': "AbhiKamati9099",
+        'HOST': "sql100.infinityfree.com",
+        'PORT': "3306",  # default MySQL port
     }
 }
 
