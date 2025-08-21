@@ -2,15 +2,15 @@
 Django settings for cotton project.
 """
 
-import os
 from pathlib import Path
-from dotenv import load_dotenv
+import os
 from django.contrib.messages import constants as messages
+from dotenv import load_dotenv
 
 # Load environment variables from .env file (if present)
 load_dotenv()
 
-# Build paths
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security
@@ -21,7 +21,7 @@ ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split("
 # Message storage
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-# Installed apps
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -32,7 +32,6 @@ INSTALLED_APPS = [
     'cotton_app',
 ]
 
-# Middleware
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -45,11 +44,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'cotton.urls'
 
-# Templates
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],
+        'DIRS': [BASE_DIR / "templates"],  # custom templates folder
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,7 +62,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cotton.wsgi.application'
 
-# Database (default MySQL)
+# Database (MySQL)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -76,7 +74,7 @@ DATABASES = {
     }
 }
 
-# Uncomment to fallback to SQLite locally
+# Uncomment if you want SQLite fallback for local dev
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -109,10 +107,10 @@ MEDIA_ROOT = BASE_DIR / "media"
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Email Configuration (use App Password for Gmail)
+# Email Configuration (use environment variables for security)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", "your-email@gmail.com")
-EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "your-app-password")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER", "example@gmail.com")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD", "")
