@@ -4,7 +4,7 @@ chardet==5.2.0
 charset-normalizer==3.4.1
 defusedxml==0.7.1
 dj-database-url==2.3.0
-Django==4.2.15
+Django==4.2.16
 django-allauth==65.3.0
 django-crispy-forms==2.3
 django-heroku==0.3.1
@@ -24,3 +24,4 @@ typing-extensions==4.12.2
 urllib3==2.3.0
 whitenoise==6.8.2
 wheel
+
