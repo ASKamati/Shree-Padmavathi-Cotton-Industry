@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cotton</title>
+
+	<link rel="shortcut icon" type="image/png" href="{% static 'assets/img/favicon.png'%}">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'assets/css/all.min.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/css/owl.carousel.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/css/animate.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/css/meanmenu.min.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/css/main.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/css/responsive.css'%}">
+
+	<style>
+		.notification {
+			position: absolute;
+			top: 15px;
+			right: 20px;
+			z-index: 999;
+		}
+		.blink {
+			animation: blink 1s infinite;
+		}
+		@keyframes blink {
+			0% { opacity: 1; }
+			50% { opacity: 0; }
+			100% { opacity: 1; }
+		}
+		.hero-area {
+			background-image: url("{% static 'assets/img/hero-bg.jpg' %}");
+			background-size: cover;
+			background-position: center;
+			height: 100vh;
+			position: relative;
+		}
+		.badge-danger {
+			background-color: red;
+			color: white;
+			padding: 3px 7px;
+			border-radius: 50%;
+			position: absolute;
+			top: -8px;
+			right: -5px;
+			font-size: 10px;
+		}
+	</style>
+</head>
+<body>
+
+<!-- PreLoader -->
+<div class="loader">
+	<div class="loader-inner">
+		<div class="circle"></div>
+	</div>
+</div>
+
+<!-- Header -->
+<div class="top-header-area" id="sticker">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-sm-12">
+				<div class="main-menu-wrap position-relative d-flex justify-content-between align-items-center">
+
+					<!-- Logo -->
+					<div class="site-logo">
+						<h3 class="text-white">Padmavati Cotton Industries</h3>
+					</div>
+
+					<!-- Menu -->
+					<ul class="main-menu d-flex align-items-center" style="margin-bottom: 0;">
+						{% include 'admin_menu.html' %}
+					</ul>
+
+					<!-- Notification Bell 
+					<div class="notification">
+						<a href="{% url 'cotton_request_noti' %}" class="btn btn-outline-light position-relative">
+							<i class="fas fa-bell" id="cotton-bell"></i>
+							<span class="badge badge-danger d-none" id="cotton-badge">0</span>
+						</a>
+					</div>-->
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Header -->
+
+<!-- Hero Section -->
+<div class="hero-area">
+	<div class="container h-100">
+		<div class="row h-100 justify-content-center align-items-center">
+			<!-- Optional hero content -->
+		</div>
+	</div>
+</div>
+
+<!-- Scripts -->
+<script src="{% static 'assets/js/jquery-1.11.3.min.js' %}"></script>
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="{% static 'assets/js/jquery.countdown.js'%}"></script>
+<script src="{% static 'assets/js/jquery.isotope-3.0.6.min.js'%}"></script>
+<script src="{% static 'assets/js/waypoints.js'%}"></script>
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.magnific-popup.min.js'%}"></script>
+<script src="{% static 'assets/js/jquery.meanmenu.min.js'%}"></script>
+<script src="{% static 'assets/js/sticker.js'%}"></script>
+<script src="{% static 'assets/js/main.js'%}"></script>
+
+<!-- Notification Logic -->
+<script>
+let lastCount = 0;
+let hasLoadedOnce = false;
+
+function fetchCottonCount() {
+    fetch("{% url 'get_cotton_count' %}")
+        .then(response => response.json())
+        .then(data => {
+            const badge = document.getElementById('cotton-badge');
+            const bell = document.getElementById('cotton-bell');
+
+            if (data.count > 0) {
+                badge.innerText = data.count;
+                badge.classList.remove('d-none');
+                bell.classList.add('blink');
+
+                // Play sound only if this is not the first load and count increased
+                if (hasLoadedOnce && data.count > lastCount) {
+                    const sound = new Audio("{% static 'assets/sounds/notify.mp3' %}");
+                    sound.play();
+                }
+            } else {
+                badge.classList.add('d-none');
+                bell.classList.remove('blink');
+            }
+
+            lastCount = data.count;
+            hasLoadedOnce = true; // Now we're allowed to play sound on next change
+        });
+}
+
+// Initial and repeating checks
+fetchCottonCount();
+setInterval(fetchCottonCount, 5000);
+</script>
+
+
+</body>
+</html>

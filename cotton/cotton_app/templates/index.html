@@ -1,0 +1,1521 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SHREE PADMAVATI COTTON INDUSTRIES - Cotton Ginning & Pressing</title>
+    <meta
+      name="description"
+      content="SHREE PADMAVATI COTTON INDUSTRIES - Leading Cotton Ginning & Pressing company in Dharwad with 30+ years experience. GST: 29ACWFS6981Q1ZH. Technology Machine on Cotton (TMC) with Rs.10 Crores investment."
+    />
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-blue: #001a4d;
+        --secondary-blue: #0059b3;
+        --gold: #ffc61a;
+        --gold-dark: #e6b200;
+        --cotton-white: #fefefe;
+        --cotton-cream: #faf9f5;
+        --text-dark: #1a1a1a;
+        --text-gray: #666666;
+        --border-light: #e5e5e5;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: var(--text-dark);
+        overflow-x: hidden;
+      }
+
+      /* Preloader */
+      .preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--secondary-blue)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+      }
+
+      .preloader.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid rgba(255, 198, 26, 0.3);
+        border-top: 4px solid var(--gold);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Header */
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .header.transparent {
+        background: rgba(0, 26, 77, 0.9);
+        backdrop-filter: blur(10px);
+        box-shadow: none;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 80px;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 700;
+        font-family: "Playfair Display", serif;
+        color: var(--primary-blue);
+      }
+
+      .header.transparent .logo {
+        color: white;
+      }
+
+      .logo .highlight {
+        color: var(--gold);
+      }
+
+      .logo .subtitle {
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--text-gray);
+        font-family: "Inter", sans-serif;
+      }
+
+      .header.transparent .logo .subtitle {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      .nav-menu a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+      }
+
+      .header.transparent .nav-menu a {
+        color: white;
+      }
+
+      .nav-menu a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold);
+        transition: width 0.3s ease;
+      }
+
+      .nav-menu a:hover::after {
+        width: 100%;
+      }
+
+      .nav-buttons {
+        display: flex;
+        gap: 15px;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 30px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-primary {
+        background: var(--gold);
+        color: white;
+        box-shadow: 0 4px 15px rgba(255, 198, 26, 0.3);
+      }
+
+      .btn-primary:hover {
+        background: var(--gold-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(255, 198, 26, 0.4);
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: var(--text-dark);
+        border: 2px solid var(--border-light);
+      }
+
+      .header.transparent .btn-outline {
+        color: white;
+        border-color: white;
+      }
+
+      .btn-outline:hover {
+        background: var(--primary-blue);
+        color: white;
+        border-color: var(--primary-blue);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh;
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue) 0%,
+          var(--secondary-blue) 100%
+        );
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        opacity: 0.3;
+      }
+
+      .floating-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .floating-element {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.1;
+        animation: float 20s infinite linear;
+      }
+
+      .floating-element:nth-child(1) {
+        width: 200px;
+        height: 200px;
+        background: var(--gold);
+        top: 10%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+
+      .floating-element:nth-child(2) {
+        width: 150px;
+        height: 150px;
+        background: var(--cotton-white);
+        top: 60%;
+        right: 15%;
+        animation-delay: -10s;
+      }
+
+      .floating-element:nth-child(3) {
+        width: 100px;
+        height: 100px;
+        background: var(--gold);
+        bottom: 20%;
+        left: 70%;
+        animation-delay: -5s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        33% {
+          transform: translateY(-30px) rotate(120deg);
+        }
+        66% {
+          transform: translateY(30px) rotate(240deg);
+        }
+      }
+
+      .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+        color: white;
+        z-index: 2;
+        position: relative;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+        color: var(--gold);
+        margin-bottom: 20px;
+        opacity: 0;
+        animation: fadeInUp 1s ease 0.5s forwards;
+      }
+
+      .hero-title {
+        font-size: clamp(40px, 8vw, 80px);
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 30px;
+        opacity: 0;
+        animation: fadeInUp 1s ease 0.7s forwards;
+      }
+
+      .hero-description {
+        font-size: 20px;
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0;
+        animation: fadeInUp 1s ease 0.9s forwards;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fadeInUp 1s ease 1.1s forwards;
+      }
+
+      .btn-hero {
+        padding: 15px 30px;
+        font-size: 18px;
+        border-radius: 50px;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Stats Section */
+      .stats {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 60px;
+        color: white;
+        z-index: 2;
+      }
+
+      .stat-item {
+        text-align: center;
+        opacity: 0;
+        animation: fadeInUp 1s ease 1.3s forwards;
+      }
+
+      .stat-number {
+        font-size: 36px;
+        font-weight: 700;
+        color: var(--gold);
+        display: block;
+      }
+
+      .stat-label {
+        font-size: 14px;
+        opacity: 0.8;
+      }
+
+      /* Company Info Section */
+      .company-info {
+        padding: 100px 0;
+        background: var(--cotton-cream);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .section-title {
+        font-size: 48px;
+        font-family: "Playfair Display", serif;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--primary-blue);
+      }
+
+      .section-subtitle {
+        font-size: 18px;
+        color: var(--text-gray);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .highlight-text {
+        color: var(--gold);
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+      }
+
+      .info-card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-light);
+      }
+
+      .info-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .info-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        color: white;
+        margin-bottom: 25px;
+      }
+
+      .info-title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-blue);
+      }
+
+      .info-description {
+        color: var(--text-gray);
+        line-height: 1.7;
+      }
+
+      /* Services Section */
+      .services {
+        padding: 100px 0;
+        background: white;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .service-card {
+        background: var(--cotton-cream);
+        padding: 40px 30px;
+        border-radius: 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .service-card:hover {
+        background: white;
+        border-color: var(--gold);
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .service-icon {
+        font-size: 48px;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+
+      .service-title {
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--primary-blue);
+      }
+
+      .service-description {
+        color: var(--text-gray);
+        line-height: 1.6;
+      }
+
+      /* About Section */
+      .about {
+        padding: 100px 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--secondary-blue)
+        );
+        color: white;
+        position: relative;
+      }
+
+      .about::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        opacity: 0.3;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .about-text h3 {
+        font-size: 36px;
+        font-family: "Playfair Display", serif;
+        margin-bottom: 30px;
+        color: var(--gold);
+      }
+
+      .about-text p {
+        font-size: 18px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        opacity: 0.9;
+      }
+
+      .company-details {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 25px;
+        border-radius: 15px;
+        margin: 25px 0;
+        backdrop-filter: blur(10px);
+      }
+
+      .company-details h4 {
+        color: var(--gold);
+        font-weight: 600;
+        margin-bottom: 15px;
+      }
+
+      .company-details p {
+        margin-bottom: 8px;
+        font-size: 16px;
+      }
+
+      .about-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .about-stat {
+        text-align: center;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      .about-stat-number {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--gold);
+        display: block;
+      }
+
+      .about-stat-label {
+        font-size: 14px;
+        opacity: 0.8;
+      }
+
+      .about-image {
+        position: relative;
+      }
+
+      .about-image::before {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 100%;
+        height: 100%;
+        background: var(--gold);
+        border-radius: 20px;
+        z-index: -1;
+      }
+
+      .about-image img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: var(--shadow-lg);
+      }
+
+      /* Contact Section - Fixed Alignment */
+      .contact {
+        padding: 100px 0;
+        background: var(--cotton-cream);
+      }
+
+      .contact-content {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .contact-info h3 {
+        font-size: 36px;
+        font-family: "Playfair Display", serif;
+        margin-bottom: 50px;
+        color: var(--primary-blue);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 25px;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        text-align: left;
+      }
+
+      .contact-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .contact-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        flex-shrink: 0;
+      }
+
+      .contact-details h4 {
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--primary-blue);
+        font-size: 18px;
+      }
+
+      .contact-details p {
+        color: var(--text-gray);
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      /* Call to Action */
+      .contact-cta {
+        text-align: center;
+        padding: 40px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--secondary-blue)
+        );
+        border-radius: 20px;
+        color: white;
+        margin-top: 40px;
+      }
+
+      .contact-cta h4 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: var(--gold);
+      }
+
+      .contact-cta p {
+        font-size: 16px;
+        margin-bottom: 25px;
+        opacity: 0.9;
+      }
+
+      .contact-cta-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--primary-blue);
+        color: white;
+        padding: 60px 0 30px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-section h4 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: var(--gold);
+      }
+
+      .footer-section p,
+      .footer-section a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      .footer-section a:hover {
+        color: var(--gold);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background: var(--gold);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 30px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* Scroll to Top */
+      .scroll-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--gold);
+        border: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 1000;
+      }
+
+      .scroll-top.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .scroll-top:hover {
+        background: var(--gold-dark);
+        transform: translateY(-3px);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .nav-menu,
+        .nav-buttons {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .hero-title {
+          font-size: 40px;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .stats {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .info-grid,
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .section-title {
+          font-size: 36px;
+        }
+
+        .about-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-cta-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      /* Animation Classes */
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease;
+      }
+
+      .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .scale-in {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all 0.6s ease;
+      }
+
+      .scale-in.visible {
+        opacity: 1;
+        transform: scale(1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header transparent" id="header">
+      <div class="nav-container">
+        <div class="logo">
+          <span class="highlight">SHREE</span> PADMAVATI
+          <div class="subtitle">COTTON INDUSTRIES</div>
+        </div>
+
+        <nav class="nav-menu">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-buttons">
+          <a href="tel:+919448640472" class="btn btn-outline">Call Now</a>
+          <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+        </div>
+
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+      </div>
+
+      <div class="hero-content">
+        <p class="hero-subtitle">Cotton Ginning & Pressing</p>
+        <h1 class="hero-title">SHREE PADMAVATI<br />COTTON INDUSTRIES</h1>
+        <p class="hero-description">
+          Leading Cotton Ginning & Pressing company with Technology Machine on
+          Cotton (TMC). Over three decades of excellence by Mr. Mohan T Astagi
+          and family. Rs.10 Crores investment in modern technology.
+        </p>
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary btn-hero">
+            <i class="fas fa-arrow-right"></i>
+            Our Services
+          </a>
+          <a href="#about" class="btn btn-outline btn-hero">
+            <i class="fas fa-industry"></i>
+            Our Facility
+          </a>
+        </div>
+      </div>
+	  
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-number">30+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">₹10</span>
+          <span class="stat-label">Crores Investment</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">TMC</span>
+          <span class="stat-label">Technology Machine</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company Info Section -->
+    <section class="company-info" id="info">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <h2 class="section-title">
+            Company <span class="highlight-text">Information</span>
+          </h2>
+          <p class="section-subtitle">
+            Professional Cotton Ginning & Pressing with state-of-the-art
+            Technology Machine on Cotton (TMC)
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-card fade-in-up">
+            <div class="info-icon">
+              <i class="fas fa-building"></i>
+            </div>
+            <h3 class="info-title">Company Profile</h3>
+            <div class="info-description">
+              <p><strong>Name:</strong> SHREE PADMAVATI COTTON INDUSTRIES</p>
+              <p><strong>GST TIN:</strong> 29ACWFS6981Q1ZH</p>
+              <p><strong>Status:</strong> Partnership Firm</p>
+              <p><strong>Nature:</strong> Ginning & Pressing of Cotton</p>
+            </div>
+          </div>
+
+          <div class="info-card fade-in-up">
+  <div class="info-icon">
+    <i class="fas fa-map-marker-alt"></i>
+  </div>
+  <h3 class="info-title">Location</h3>
+  <div class="info-description">
+    <p><strong>Address:</strong></p>
+    <p>"BASAVA MARG" DURGADEVI TEMPLE</p>
+    <p>SAUNDATTI DHARWAD-580006</p>
+    <p>Karnataka, India</p>
+    <p>
+      <a href="https://maps.app.goo.gl/Cjg1ELzyRQN1sJXF9" target="_blank" style="color: #4285F4; text-decoration: underline;">
+        📍 View on Google Maps
+      </a>
+    </p>
+  </div>
+</div>
+
+
+          <div class="info-card fade-in-up">
+            <div class="info-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3 class="info-title">Technology & Investment</h3>
+            <div class="info-description">
+              <p>
+                <strong>Type of Unit:</strong> Technology Machine on Cotton
+                (TMC)
+              </p>
+              <p><strong>Investment:</strong> Rs.10 Crores</p>
+              <p><strong>Experience:</strong> 30+ Years in Cotton Business</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <h2 class="section-title">
+            Our <span class="highlight-text">Services</span>
+          </h2>
+          <p class="section-subtitle">
+            Comprehensive cotton ginning and pressing solutions with advanced
+            technology
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h3 class="service-title">Cotton Ginning</h3>
+            <p class="service-description">
+              Advanced ginning services using Technology Machine on Cotton (TMC)
+              to separate cotton fibers from seeds with precision and
+              efficiency.
+            </p>
+          </div>
+
+          <div class="service-card fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-compress-arrows-alt"></i>
+            </div>
+            <h3 class="service-title">Cotton Pressing</h3>
+            <p class="service-description">
+              Professional cotton pressing services using modern machinery to
+              compact cotton into high-density bales for efficient storage and
+              transport.
+            </p>
+          </div>
+
+          <div class="service-card fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3 class="service-title">Technology Machine on Cotton</h3>
+            <p class="service-description">
+              State-of-the-art Technology Machine on Cotton (TMC) with Rs.10
+              Crores investment ensuring highest quality processing standards.
+            </p>
+          </div>
+
+          <div class="service-card fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-seedling"></i>
+            </div>
+            <h3 class="service-title">Raw Cotton Processing</h3>
+            <p class="service-description">
+              Complete raw cotton processing from sourcing to final product with
+              30+ years of expertise in the cotton industry.
+            </p>
+          </div>
+
+          <div class="service-card fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-truck"></i>
+            </div>
+            <h3 class="service-title">Cotton Bale Supply</h3>
+            <p class="service-description">
+              Reliable supply of pressed cotton bales to textile mills and
+              manufacturers across India with consistent quality assurance.
+            </p>
+          </div>
+
+          <div class="service-card fade-in-up">
+            <div class="service-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <h3 class="service-title">Quality Control</h3>
+            <p class="service-description">
+              Rigorous quality control processes ensuring premium cotton output
+              that meets industry standards and customer specifications.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text fade-in-up">
+            <h3>Building the Future of Cotton Ginning & Pressing</h3>
+            <p>
+              <strong>SHREE PADMAVATI COTTON INDUSTRIES</strong> is a
+              Partnership Firm specializing in Cotton Ginning & Pressing.
+              Founded by Mr. Mohan T Astagi and his Father Sri. Tavanappa P
+              Astagi, we have been dedicated to the cotton business for over 30
+              years.
+            </p>
+            <p>
+              Our state-of-the-art facility uses Technology Machine on Cotton
+              (TMC) with a substantial investment of Rs.10 Crores. Located at
+              "BASAVA MARG" DURGADEVI TEMPLE, SAUNDATTI DHARWAD-580006, we are
+              committed to delivering excellence in cotton processing.
+            </p>
+
+            <div class="company-details">
+              <h4>Company Registration Details</h4>
+              <p><strong>GST TIN NO:</strong> 29ACWFS6981Q1ZH</p>
+              <p>
+                <strong>Nature of Business:</strong> Ginning & Pressing of
+                Cotton
+              </p>
+              <p><strong>Status:</strong> Partnership Firm</p>
+              <p>
+                <strong>Type of Unit:</strong> Technology Machine on Cotton
+                (TMC)
+              </p>
+              <p><strong>Investment:</strong> Rs.10 Crores</p>
+            </div>
+
+            <div class="about-stats">
+              <div class="about-stat">
+                <span class="about-stat-number">30+</span>
+                <span class="about-stat-label">Years Experience</span>
+              </div>
+              <div class="about-stat">
+                <span class="about-stat-number">₹10</span>
+                <span class="about-stat-label">Crores Investment</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-image fade-in-up">
+            <img
+              src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              alt="Cotton Processing Facility"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header fade-in-up">
+          <h2 class="section-title">
+            Get In <span class="highlight-text">Touch</span>
+          </h2>
+          <p class="section-subtitle">
+            Ready to start your cotton business journey with us? Contact our
+            expert team today.
+          </p>
+        </div>
+
+        <div class="contact-content fade-in-up">
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+
+            <div class="contact-grid">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Managing Director</h4>
+                  <p>Shri Mohan T Astagi, MD, SPCI, Dharwad</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Address</h4>
+                  <p>
+                    "BASAVA MARG" DURGADEVI TEMPLE<br />SAUNDATTI
+                    DHARWAD-580006<br />Karnataka, India
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Mobile</h4>
+                  <p>+91 94486 40472</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Email</h4>
+                  <p>
+                    astagimohan9@gmail.com<br />shreepadmavaticottonindustries@gmail.com
+                  </p>
+                </div>
+              </div>
+
+              <!--<div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-id-card"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>GST Number</h4>
+                  <p>29ACWFS6981Q1ZH</p>
+                </div>
+              </div>-->
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-industry"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Business Type</h4>
+                  <p>
+                    Partnership Firm<br />Cotton Ginning & Pressing<br />Technology
+                    Machine on Cotton (TMC)
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-cta">
+              <h4>Ready to Work with Us?</h4>
+              <p>
+                Contact us directly for immediate assistance with your cotton
+                processing needs. We're here to help!
+              </p>
+              <div class="contact-cta-buttons">
+                <a href="tel:+919448640472" class="btn btn-primary">
+                  <i class="fas fa-phone"></i>
+                  Call Now
+                </a>
+                <a href="mailto:astagimohan9@gmail.com" class="btn btn-outline">
+                  <i class="fas fa-envelope"></i>
+                  Send Email
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>SHREE PADMAVATI COTTON INDUSTRIES</h4>
+            <p>
+              Partnership Firm specializing in Cotton Ginning & Pressing with
+              over three decades of excellence. Led by Mr. Mohan T Astagi and
+              family with Rs.10 Crores investment in Technology Machine on
+              Cotton (TMC).
+            </p>
+            <!--<p><strong>GST TIN:</strong> 29ACWFS6981Q1ZH</p>
+            <div class="social-links">
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>-->
+          </div>
+
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+          </div>
+
+          <div class="footer-section">
+            <h4>Our Services</h4>
+            <a href="#">Cotton Ginning</a>
+            <a href="#">Cotton Pressing</a>
+            <a href="#">TMC Processing</a>
+            <a href="#">Cotton Bale Supply</a>
+          </div>
+
+          <div class="footer-section">
+            <h4>Contact Info</h4>
+            <p><strong>MD:</strong> Shri Mohan T Astagi</p>
+            <p>
+              "BASAVA MARG" DURGADEVI TEMPLE<br />SAUNDATTI DHARWAD-580006<br />Karnataka,
+              India
+            </p>
+            <p><strong>Mobile:</strong> +91 94486 40472</p>
+            <p>
+              <strong>Email:</strong>
+              astagimohan9@gmail.com<br />shreepadmavaticottonindustries@gmail.com
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 SHREE PADMAVATI COTTON INDUSTRIES. All rights reserved.
+            
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+      // Preloader
+      window.addEventListener("load", function () {
+        setTimeout(() => {
+          document.getElementById("preloader").classList.add("fade-out");
+        }, 1000);
+      });
+
+      // Header scroll effect
+      window.addEventListener("scroll", function () {
+        const header = document.getElementById("header");
+        const scrollTop = document.getElementById("scrollTop");
+
+        if (window.scrollY > 100) {
+          header.classList.remove("transparent");
+          scrollTop.classList.add("visible");
+        } else {
+          header.classList.add("transparent");
+          scrollTop.classList.remove("visible");
+        }
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Scroll to top
+      document
+        .getElementById("scrollTop")
+        .addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with animation classes
+      document.querySelectorAll(".fade-in-up, .scale-in").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Mobile menu toggle
+      document
+        .querySelector(".mobile-menu-btn")
+        .addEventListener("click", function () {
+          const navMenu = document.querySelector(".nav-menu");
+          const navButtons = document.querySelector(".nav-buttons");
+
+          if (navMenu.style.display === "flex") {
+            navMenu.style.display = "none";
+            navButtons.style.display = "none";
+          } else {
+            navMenu.style.display = "flex";
+            navButtons.style.display = "flex";
+            navMenu.style.flexDirection = "column";
+            navButtons.style.flexDirection = "column";
+            navMenu.style.position = "absolute";
+            navMenu.style.top = "80px";
+            navMenu.style.left = "0";
+            navMenu.style.right = "0";
+            navMenu.style.background = "white";
+            navMenu.style.padding = "20px";
+            navMenu.style.boxShadow = "0 5px 15px rgba(0,0,0,0.1)";
+          }
+        });
+
+      // Parallax effect for floating elements
+      window.addEventListener("scroll", function () {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll(".floating-element");
+
+        parallaxElements.forEach((element, index) => {
+          const speed = 0.5 + index * 0.2;
+          const yPos = -(scrolled * speed);
+          element.style.transform = `translateY(${yPos}px)`;
+        });
+      });
+
+      // Add click-to-call and email functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        // Make phone numbers clickable
+        const phoneElements = document.querySelectorAll("p, div");
+        phoneElements.forEach((element) => {
+          if (element.textContent.includes("+91 94486 40472")) {
+            element.style.cursor = "pointer";
+            element.addEventListener("click", function () {
+              window.location.href = "tel:+919448640472";
+            });
+          }
+        });
+
+        // Make email addresses clickable
+        const emailElements = document.querySelectorAll("p, div");
+        emailElements.forEach((element) => {
+          if (element.textContent.includes("astagimohan9@gmail.com")) {
+            element.style.cursor = "pointer";
+            element.addEventListener("click", function () {
+              window.location.href = "mailto:astagimohan9@gmail.com";
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

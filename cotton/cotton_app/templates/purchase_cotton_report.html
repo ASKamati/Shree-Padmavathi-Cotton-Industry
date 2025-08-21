@@ -1,0 +1,180 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cotton</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="{% static 'assets/img/favicon.png' %}">
+	<!-- google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/meanmenu.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+</head>
+<body>
+
+	<!-- Preloader -->
+	<div class="loader">
+		<div class="loader-inner">
+			<div class="circle"></div>
+		</div>
+	</div>
+
+	<!-- Header -->
+	<div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						<!--<div class="site-logo">
+							<a href="{% url 'admin_home' %}">
+								<img src="{% static 'assets/img/logo1.png' %}" alt="Logo">
+							</a>
+						</div>-->
+						{% include 'admin_menu.html' %}
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<div class="mobile-menu"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Search Area -->
+	<div class="search-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="close-btn"><i class="fas fa-window-close"></i></span>
+					<div class="search-bar">
+						<div class="search-bar-tablecell">
+							<h3>Search For:</h3>
+							<input type="text" placeholder="Keywords">
+							<button type="submit">Search <i class="fas fa-search"></i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Breadcrumb -->
+	<div class="breadcrumb-section breadcrumb-bg" style="height:200px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<h1>Cotton Purchase Report</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Purchase Report -->
+	<div class="checkout-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="checkout-accordion-wrap">
+						<div class="accordion" id="accordionExample">
+							<div class="card single-accordion">
+								<div class="card-header" id="headingOne">
+									<h5 class="mb-0">
+										<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true">
+											Market Price of Cotton
+										</button>
+									</h5>
+								</div>
+
+								<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+									<div class="card-body">
+										<div class="billing-address-form">
+											<h3>Purchase Report for {{ search_date }}</h3>
+
+											<table class="table table-bordered table-striped">
+												<thead>
+													<tr>
+														<th>User ID</th>
+														<th>Cotton Type</th>
+														<th>Qty</th>
+														<th>UOM</th>
+														<th>Request Date</th>
+														<th>Status</th>
+													</tr>
+												</thead>
+												<tbody>
+													{% for item in data %}
+													<tr>
+														<td>{{ item.user_id }}</td>
+														<td>{{ item.cotton_type }}</td>
+														<td>{{ item.qty }}</td>
+														<td>{{ item.uom }}</td>
+														<td>{{ item.request_date }}</td>
+														<td>{{ item.received_status }}</td>
+													</tr>
+													{% empty %}
+													<tr>
+														<td colspan="6" class="text-center">No data available for the selected date.</td>
+													</tr>
+													{% endfor %}
+												</tbody>
+											</table>
+
+											<h4>Total Cotton Purchased (Received Only)</h4>
+											<ul>
+												<li><strong>In Kg:</strong> {{ total_kg }} Kg</li>
+												<li><strong>In Quintal:</strong> {{ total_quintal }} Quintal</li>
+												<li><strong>Overall in Kg (including Quintal):</strong> {{ total_all_kg }} Kg</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div> <!-- end accordion -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Logos -->
+	<div class="logo-carousel-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="logo-carousel-inner">
+						{% for i in "12345" %}
+						
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="{% static 'assets/js/jquery-1.11.3.min.js' %}"></script>
+	<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.countdown.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.isotope-3.0.6.min.js' %}"></script>
+	<script src="{% static 'assets/js/waypoints.js' %}"></script>
+	<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.meanmenu.min.js' %}"></script>
+	<script src="{% static 'assets/js/sticker.js' %}"></script>
+	<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>

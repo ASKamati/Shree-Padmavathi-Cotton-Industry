@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cotton</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="{% static 'assets/img/favicon.png'%}">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="{% static 'assets/css/all.min.css'%}">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="{% static 'assets/css/owl.carousel.css'%}">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css'%}">
+	<!-- animate css -->
+	<link rel="stylesheet" href="{% static 'assets/css/animate.css'%}">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="{% static 'assets/css/meanmenu.min.css'%}">
+	<!-- main style -->
+	<link rel="stylesheet" href="{% static 'assets/css/main.css'%}">
+	<!-- responsive -->
+	<link rel="stylesheet" href="{% static 'assets/css/responsive.css'%}">
+</head>
+<body>
+
+<!--PreLoader-->
+<div class="loader">
+    <div class="loader-inner">
+        <div class="circle"></div>
+    </div>
+</div>
+<!--PreLoader Ends-->
+
+<!-- header -->
+<div class="top-header-area" id="sticker">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<div class="main-menu-wrap">
+					{% include 'admin_menu.html' %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end header -->
+
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg" style="height:200px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="breadcrumb-text">
+					<h1>Purchase Cotton</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end breadcrumb section -->
+
+<!-- check out section -->
+<div class="checkout-section mt-150 mb-150">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="checkout-accordion-wrap">
+					<div class="accordion" id="accordionExample">
+						<div class="card single-accordion">
+							<div class="card-header" id="headingOne">
+								<h5 class="mb-0">
+									<button class="btn btn-link" type="button"
+											data-toggle="collapse"
+											data-target="#collapseOne"
+											aria-expanded="true"
+											aria-controls="collapseOne">
+										Search Report by Date
+									</button>
+								</h5>
+							</div>
+
+							<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+								<div class="card-body">
+									<div class="billing-address-form">
+										<form method="post">
+											{% csrf_token %}
+											{% if msg %}
+												<p class="alert alert-success">{{ msg }}</p>
+											{% endif %}
+											<hr>
+											<label for="year">Select Year:</label>
+											<p>
+												<input type="number" name="year" class="border border-1 border-success form-control" placeholder="e.g. 2024" min="2000" max="2100">
+											</p>
+											<!-- Month Field -->
+											<label for="month">Select Month:</label>
+											<p>
+												<input type="month" name="month" class="border border-1 border-success form-control">
+											</p>
+
+											<!-- Date Field -->
+											<label for="search">Select Specific Date:</label>
+											<p>
+												<input type="date" name="search" class="border border-1 border-success form-control" placeholder="dd-mm-yyyy">
+											</p>
+
+											<!-- Submit -->
+											<p>
+												<button type="submit" class="btn btn-primary w-100">Generate Report</button>
+											</p>
+										</form>
+										{% if data %}
+<hr>
+<h4>Report Results</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Cotton Type</th>
+            <th>UOM</th>
+            <th>Qty</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in data %}
+        <tr>
+            <td>{{ row.user_id }}</td>
+            <td>{{ row.cotton_type }}</td>
+            <td>{{ row.uom }}</td>
+            <td>{{ row.qty }}</td>
+            <td>{{ row.request_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<p><strong>Total Kg:</strong> {{ total_kg }}</p>
+<p><strong>Total Quintal:</strong> {{ total_quintal }}</p>
+<p><strong>Total Qty in Kg:</strong> {{ total_all_kg }}</p>
+
+<p>
+        <a href="{% url 'download_cotton_report' %}?year={{ search_year }}&month={{ search_month }}&search={{ search_date }}" class="btn btn-danger w-100" target="_blank">
+            Download PDF
+        </a>
+    </p>
+{% endif %}
+
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- You can add more accordions here if needed -->
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end check out section -->
+
+<!-- Scripts -->
+<script src="{% static 'assets/js/jquery-1.11.3.min.js' %}"></script>
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'assets/js/jquery.countdown.js'%}"></script>
+<script src="{% static 'assets/js/jquery.isotope-3.0.6.min.js'%}"></script>
+<script src="{% static 'assets/js/waypoints.js'%}"></script>
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.magnific-popup.min.js'%}"></script>
+<script src="{% static 'assets/js/jquery.meanmenu.min.js'%}"></script>
+<script src="{% static 'assets/js/sticker.js'%}"></script>
+<script src="{% static 'assets/js/main.js'%}"></script>
+
+</body>
+</html>

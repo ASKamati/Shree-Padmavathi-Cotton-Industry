@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Change Password</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="{% static 'assets/img/favicon.png' %}">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- Styles -->
+	<link rel="stylesheet" href="{% static 'assets/css/all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/owl.carousel.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/meanmenu.min.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader">
+    <div class="loader-inner">
+        <div class="circle"></div>
+    </div>
+</div>
+
+<!-- Header -->
+<div class="top-header-area" id="sticker" style="height:200px;">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-sm-12 text-center">
+				<div class="main-menu-wrap">
+					<!-- Logo -->
+					<div class="site-logo">
+						<a href="#">
+							<img src="{% static 'assets/img/logo1.png' %}" alt="">
+						</a>
+					</div>
+					<!-- Menu -->
+					{% include 'admin_menu.html' %}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-section breadcrumb-bg" style="height:100px;">
+	<div class="container" style="min-height:100px;">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="breadcrumb-text">
+					<h1>Change Password</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Change Password Form -->
+<div class="checkout-section mt-3">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="checkout-accordion-wrap">
+					<div class="accordion" id="accordionExample">
+						<div class="card single-accordion">
+							<div class="card-header" id="headingOne">
+								<h5 class="mb-0">
+									<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+										Enter details
+									</button>
+								</h5>
+							</div>
+							<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+								<div class="card-body">
+									<div class="billing-address-form">
+										<form method="post">
+											{% csrf_token %}
+											<!-- Django Messages -->
+											{% if messages %}
+												{% for message in messages %}
+													<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+														{{ message }}
+														<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</div>
+												{% endfor %}
+											{% endif %}
+											<p><input type="password" required name="old" placeholder="Enter Old Password" class="border border-1 border-success w-100 p-2"></p>
+											<p><input type="password" required name="t1" placeholder="Enter New Password" class="border border-1 border-success w-100 p-2"></p>
+											<p><input type="password" required name="t2" placeholder="Enter Confirm Password" class="border border-1 border-success w-100 p-2"></p>
+											<p><button type="submit" class="btn btn-primary w-100">Change Password</button></p>
+										</form>
+									</div>
+									<p class="text-center"><a href="{% url 'admin_home' %}">Home</a></p>
+								</div>
+							</div>
+						</div>
+						<!-- Optional other accordions -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- JS Scripts -->
+<script src="{% static 'assets/js/jquery-1.11.3.min.js' %}"></script>
+<script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.countdown.js' %}"></script>
+<script src="{% static 'assets/js/jquery.isotope-3.0.6.min.js' %}"></script>
+<script src="{% static 'assets/js/waypoints.js' %}"></script>
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.meanmenu.min.js' %}"></script>
+<script src="{% static 'assets/js/sticker.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>

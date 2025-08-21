@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cotton</title>
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="{% static 'assets/img/favicon.png'%}">
+	<!-- google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- styles -->
+	<link rel="stylesheet" href="{% static 'assets/css/all.min.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/css/owl.carousel.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/css/animate.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/css/meanmenu.min.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/css/main.css'%}">
+	<link rel="stylesheet" href="{% static 'assets/css/responsive.css'%}">
+</head>
+<body>
+
+	<!--PreLoader-->
+	<div class="loader">
+		<div class="loader-inner">
+			<div class="circle"></div>
+		</div>
+	</div>
+
+	<!-- header -->
+	<div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						<div class="site-logo">
+							<a href="index.html">
+								<img src="assets/img/logo1.png" alt="">
+							</a>
+						</div>
+						{% include 'admin_menu.html' %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- breadcrumb -->
+	<div class="breadcrumb-section breadcrumb-bg" style="height:200px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="breadcrumb-text">
+						<h1>Cotton Separation Details</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- check out section -->
+	<div class="checkout-section mt-150 mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="checkout-accordion-wrap">
+						<div class="accordion" id="accordionExample">
+							<div class="card single-accordion">
+								<div class="card-header" id="headingOne">
+									<h5 class="mb-0">
+										<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+											Cotton Details
+										</button>
+									</h5>
+								</div>
+								<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+									<div class="card-body">
+										<div class="billing-address-form">
+											<table class="table table-bordered table-striped">
+												<thead class="table-dark">
+													<th>#</th>
+													<th>Date</th>
+													<th>Separation Type</th>
+													<th>UoM</th>
+													<th>Total Qty</th>
+												</thead>
+												<tbody>
+													{% for r in userdict %}
+													<tr>
+														<td>{{ forloop.counter }}</td>
+														<td>{{ r.date }}</td>
+														<td>{{ r.separation_type }}</td>
+														<td>{{ r.uom }}</td>
+														<td>{{ r.total_qty }}</td>
+													</tr>
+													{% endfor %}
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="card single-accordion"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Bar Chart -->
+			<div class="row mt-5">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<h3 class="mb-4">Cotton Processing Summary</h3>
+					<canvas id="cottonChart" height="120"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- logo carousel -->
+	<div class="logo-carousel-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="logo-carousel-inner">
+						<div class="single-logo-item"><img src="assets/img/company-logos/1.png" alt=""></div>
+						<div class="single-logo-item"><img src="assets/img/company-logos/2.png" alt=""></div>
+						<div class="single-logo-item"><img src="assets/img/company-logos/3.png" alt=""></div>
+						<div class="single-logo-item"><img src="assets/img/company-logos/4.png" alt=""></div>
+						<div class="single-logo-item"><img src="assets/img/company-logos/5.png" alt=""></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- scripts -->
+	<script src="{% static 'assets/js/jquery-1.11.3.min.js' %}"></script>
+	<script src="{% static 'assets/bootstrap/js/bootstrap.min.js'%}"></script>
+	<script src="{% static 'assets/js/jquery.countdown.js'%}"></script>
+	<script src="{% static 'assets/js/jquery.isotope-3.0.6.min.js'%}"></script>
+	<script src="{% static 'assets/js/waypoints.js'%}"></script>
+	<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.magnific-popup.min.js'%}"></script>
+	<script src="{% static 'assets/js/jquery.meanmenu.min.js'%}"></script>
+	<script src="{% static 'assets/js/sticker.js'%}"></script>
+	<script src="{% static 'assets/js/main.js'%}"></script>
+
+	<!-- Chart.js CDN -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+	<!-- Chart Script -->
+	<script>
+		const ctx = document.getElementById('cottonChart').getContext('2d');
+		const cottonChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ['Cleaned', 'Pressed', 'Wastage', 'Uncleaned'],
+				datasets: [{
+					label: 'Quantity (in Kg)',
+					data: [{{ cleaned }}, {{ pressed }}, {{ wastage }}, {{ uncleaned }}],
+					//data: [350, 200, 50, 100],  // Replace with Django variables later
+					backgroundColor: ['#A5D6A7', '#90CAF9', '#EF9A9A', '#CE93D8'],  // pastel green, blue, red, purple
+					borderColor: ['#81C784', '#64B5F6', '#E57373', '#BA68C8'],      // slightly darker matching borders
+					borderWidth: 1
+				}]
+			},
+			options: {
+    plugins: {
+        legend: {
+            labels: {
+                color: '#fff',  // white legend text for visibility
+                font: {
+                    weight: 'bold'
+                }
+            }
+        },
+        title: {
+            display: true,
+            text: 'Cotton Processing Summary',
+            color: '#fff',
+            font: {
+                size: 18,
+                weight: 'bold'
+            }
+        }
+    },
+    scales: {
+        x: {
+            ticks: {
+                color: '#fff'  // white X-axis labels
+            },
+            title: {
+                display: true,
+                text: 'Cotton Type',
+                color: '#fff'
+            }
+        },
+        y: {
+            ticks: {
+                color: '#fff'
+            },
+            title: {
+                display: true,
+                text: 'Quantity (Kg)',
+                color: '#fff'
+            }
+        }
+    }
+}
+		});
+	</script>
+</body>
+</html>

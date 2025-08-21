@@ -1,0 +1,297 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Shri Padmavati Cotton Industries - Report</title>
+    <style>
+        /* PDF-compatible CSS for xhtml2pdf */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #ffffff;
+            color: #333333;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        /* Header Section with Logo Right and Company Name Center */
+        .header {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            border-bottom: 2px solid #0066cc;
+            height: 100px;
+        }
+
+        .logo {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            width: 100px;
+            height: auto;
+            
+        }
+
+        .header-center {
+            text-align: center;
+            padding-right: 100px; /* Leave space for logo */
+        }
+
+        .company-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0066cc;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+
+        .company-subtitle {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 5px;
+        }
+
+        .report-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+        .report-date {
+            font-size: 12px;
+            color: #666666;
+        }
+
+        /* Table Styles */
+        .table-container {
+            margin: 20px 0;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+        }
+
+        .table-header {
+            background-color: #0066cc;
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+
+        th {
+            background-color: #f0f8ff;
+            border: 1px solid #0066cc;
+            padding: 12px 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 11px;
+            color: #0066cc;
+            text-transform: uppercase;
+        }
+
+        td {
+            border: 1px solid #cccccc;
+            padding: 10px 8px;
+            text-align: center;
+            font-size: 11px;
+            background-color: #ffffff;
+        }
+
+        /* Alternating row colors */
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        /* Summary Section */
+        .summary-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #cccccc;
+        }
+
+        .summary-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 15px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .summary-grid {
+            width: 100%;
+        }
+
+        .summary-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+        }
+
+        .summary-label {
+            font-weight: bold;
+            color: #333333;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .summary-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #cccccc;
+            font-size: 10px;
+            color: #666666;
+        }
+
+        /* Company Info */
+        .company-info {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border: 1px solid #0066cc;
+            font-size: 10px;
+            color: #333333;
+        }
+
+        .company-info-title {
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+
+        /* Page break for PDF */
+        .page-break {
+            page-break-before: always;
+        }
+
+        /* Print optimizations */
+        @media print {
+            body {
+                margin: 0;
+                padding: 15px;
+                font-size: 11px;
+            }
+            
+            .header {
+                margin-bottom: 20px;
+            }
+            
+            table {
+                font-size: 10px;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+            }
+
+            .logo {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section with Logo Right and Company Name Center -->
+    <div class="header">
+        
+        <img src="https://cdn.builder.io/api/v1/image/assets%2F1817ada77d58495f9ba77cb8ba014daa%2F3d8b34154f1041bea8fe883b73b0efb1?format=webp&width=800" alt="Company Logo" class="logo">
+        
+        <div class="header-center">
+            <div class="company-title">Shri Padmavati Cotton Industries</div>
+            
+            <div class="report-title">Cotton Inventory Report</div>
+            <div class="report-date">Generated on: {% now "F d, Y H:i" %}</div>
+        </div>
+    </div>
+
+    <!-- Data Table -->
+    <div class="table-container">
+        <div class="table-header">Cotton Processing Records</div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>User ID</th>
+                    <th>Cotton Type</th>
+                    <th>UOM</th>
+                    <th>Quantity</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td><strong>{{ row.user_id }}</strong></td>
+                    <td>{{ row.cotton_type }}</td>
+                    <td>{{ row.uom }}</td>
+                    <td><strong>{{ row.qty }}</strong></td>
+                    <td>{{ row.request_date|date:"d-m-Y" }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" style="text-align: center; font-style: italic; color: #666;">
+                        No records found
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Summary Section -->
+    <div class="summary-section">
+        <div class="summary-title">Summary Report</div>
+        
+        <table class="summary-grid">
+            <tr>
+                <td class="summary-item" style="width: 33.33%;">
+                    <div class="summary-label">Total Weight (Kg)</div>
+                    <div class="summary-value">{{ total_kg|default:"0" }}</div>
+                </td>
+                <td class="summary-item" style="width: 33.33%;">
+                    <div class="summary-label">Total Quintal</div>
+                    <div class="summary-value">{{ total_quintal|default:"0" }}</div>
+                </td>
+                <td class="summary-item" style="width: 33.33%;">
+                    <div class="summary-label">Total Qty (Kg)</div>
+                    <div class="summary-value">{{ total_all_kg|default:"0" }}</div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+   
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© {% now "Y" %} Shri Padmavati Cotton Industries. All rights reserved.</p>
+        <p>This is a computer-generated report and does not require a signature.</p>
+    </div>
+</body>
+</html>
